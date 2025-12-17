@@ -1,8 +1,13 @@
+---
+import "../styles/index.css";
+---
 <header
   data-header
-  class="fixed inset-x-2 top-[calc(50%-10vh)] text-[10vw] leading-none text-white z-20"
+  class="fixed inset-x-2 top-[calc(50%-10vh)] text-[10vw] leading-none text-dark-brown z-50"
 >
-  <h1 class="text-center font-semibold whitespace-nowrap">Jordan Blake</h1>
+<div class="">
+  <h1 class="text-center font-medium whitespace-normal md:whitespace-nowrap">MADISON <span class="block md:inline">AUBEY</span></h1>
+</div>
 </header>
 
 <script>
@@ -12,29 +17,69 @@
 
   DOMLoaded(() => {
     gsap.registerPlugin(ScrollTrigger)
-    const hero = document.querySelector('[data-hero]') as HTMLElement
+	const hero = document.querySelector('[data-hero]') as HTMLElement
     const projects = document.querySelector('[data-projects]') as HTMLElement
     const header = document.querySelector('[data-header]') as HTMLElement
-    const tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: hero,
-        start: 'top top',
-        end: 'bottom top',
-        scrub: true,
-      },
+    const vw = window.innerWidth
+	const rect = header.getBoundingClientRect();
+
+	const header_text = document.querySelector(".test");
+	const scale = 1.85;
+
+	const tl0 = gsap.timeline()
+	tl0.set("header", {
+	opacity:0
+	})
+	tl0.to("header", {
+	opacity:1,
+	duration:0.75,
+	ease:"power2.out"
+	})
+	.to("header", 
+	{
+	scale:scale,
+	duration: 0.4,
+	delay:0.,
+	ease:"power2.out",
+	scrub:true,
+	})
+	.to("header", 
+	{
+	y: -rect.top*0.9,
+	duration: 0.6,
+	ease:"power2.out",
+	scrub:true,
+	})
+
+	const tl1 = gsap.timeline()
+	tl1.to("header",
+	{
+	opacity:1,
+    xPercent: -40,
+    yPercent: -40,
+    scale: 0.3,
+	duration:1,
+    ease: "power2.out",
+	scrollTrigger: {
+			trigger: hero,
+			start: 'top top',
+			end: '+=300',
+			scrub: true,
+		}
     })
 
-    const tl2 = gsap.timeline({
-      scrollTrigger: {
-        trigger: projects,
-        start: 'top 5%',
-        end: 'top -5%',
-        scrub: true,
-      },
-    })
-
-    tl.to(header, { fontSize: '1.5rem', top: '1.25rem', duration: 1 })
-
-    tl2.to(header, { color: '#022859', duration: 1 })
+	ScrollTrigger.create({
+	trigger: hero,
+	start: "top top",
+	onLeaveBack: () => {
+		gsap.to("header", {
+		scale: scale,
+		y: -rect.top*0.9,
+		duration: 0.1,
+		ease:"power2.out"
+		});
+	}
+	});
+	
   })
 </script>

@@ -13,10 +13,13 @@ export default {
       'light-gray': '#E0E0E0',
       'steel-blue': '#B0C4DE',
       'slate-gray': '#708090',
+	  'light-brown': '#c29d70',
+	  'dark-brown': '#5f3707ff',
     },
     fontFamily: {
-      sans: ['Montserrat', 'sans-serif'],
-      serif: ['Playfair Display', 'serif'],
+      sans: ['BBH Bogle', 'sans-serif'],
+      serif: ['BBH Bogle', 'sans-serif'],
+	  pretty: ['Outfit', 'sans-serif']
     },
     extend: {},
   },
