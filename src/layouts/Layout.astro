@@ -17,8 +17,9 @@ const { title } = Astro.props
     <meta charset="UTF-8" />
     <meta name="description" content="Astro description" />
     <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="images/svg+xml" href="../icons/maddy.svg" />
     <meta name="generator" content={Astro.generator} />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>{title}</title>
   </head>
   <body class="relative">
@@ -32,10 +33,14 @@ const { title } = Astro.props
 		/>
 		<div class="spacer">
 		</div>
-		<div class="items-center">
-		<p class="hover:text-light-gray transition-colors text-center text-5xl font-pretty font-bold hero-email text-dark-brown max-w-[90vw]">
+		<!--<div class="items-center">-->
+		<div class="flex justify-center">
+		<div class="hover:text-light-gray text-dark-brown transition-colors hero-email">
+		<a href="mailto:madisonaubey@g.ucla.edu"><i class="fa fa-envelope" style="font-size:48px;"></i></a>
+		</div>
+		<!--<p class="hover:text-light-gray transition-colors text-center text-5xl font-pretty font-bold hero-email text-dark-brown max-w-[90vw]">
 			 <a href="mailto:madisonaubey@g.ucla.edu">madisonaubey@g.ucla.edu</a>
-		</p>
+		</p>-->
 		
 		</div>
 	</div>
