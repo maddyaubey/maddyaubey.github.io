@@ -17,9 +17,9 @@ export default {
 	  'dark-brown': '#5f3707ff',
     },
     fontFamily: {
-      sans: ['BBH Bogle', 'sans-serif'],
+      sans: ['Leckerli One', 'cursive'],
       serif: ['BBH Bogle', 'sans-serif'],
-	  pretty: ['Outfit', 'sans-serif']
+	  pretty: ['Outfit', 'sans-serif'],
     },
     extend: {},
   },

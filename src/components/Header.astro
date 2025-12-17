@@ -3,7 +3,7 @@ import "../styles/index.css";
 ---
 <header
   data-header
-  class="fixed inset-x-2 top-[calc(50%-10vh)] text-[10vw] leading-none text-dark-brown z-50"
+  class="fixed inset-x-2 top-[calc(50%-10vh)] text-[15vw] md:text-[10vw] leading-none text-dark-brown z-50"
 >
 <div class="">
   <a href='#'><h1 class="text-center font-xl md:font-medium whitespace-normal md:whitespace-nowrap">MADISON <span class="block md:inline">AUBEY</span></h1></a>
@@ -27,6 +27,7 @@ import "../styles/index.css";
 	const scale = 1.85;
 
 	const tl0 = gsap.timeline()
+
 	tl0.set("header", {
 	opacity:0
 	})
@@ -35,7 +36,7 @@ import "../styles/index.css";
 	duration:0.75,
 	ease:"power2.out"
 	})
-	.to("header", 
+	tl0.to("header", 
 	{
 	scale:scale,
 	duration: 0.4,
@@ -43,43 +44,103 @@ import "../styles/index.css";
 	ease:"power2.out",
 	scrub:true,
 	})
-	.to("header", 
-	{
-	y: -rect.top*0.9,
-	duration: 0.6,
-	ease:"power2.out",
-	scrub:true,
-	})
+	ScrollTrigger.matchMedia({
 
-	const tl1 = gsap.timeline()
-	tl1.to("header",
-	{
-	opacity:1,
-    xPercent: -40,
-    yPercent: -40,
-    scale: 0.3,
-	duration:1,
-    ease: "power2.out",
-	scrollTrigger: {
-			trigger: hero,
-			start: 'top top',
-			end: '+=300',
-			scrub: true,
-		}
-    })
-
-	ScrollTrigger.create({
-	trigger: hero,
-	start: "middle top",
-	onLeaveBack: () => {
-		gsap.to("header", {
-		scale: scale,
+	// Desktop
+	"(min-width: 1024px)": () => {
+		tl0.to("header", 
+		{
 		y: -rect.top*0.9,
-		duration: 0.1,
-		ease:"power2.out"
+		duration: 0.6,
+		ease:"power2.out",
+		scrub:true,
+		});
+	},
+
+	// Mobile
+	"(max-width: 1023px)": () => {
+		tl0.to("header", 
+		{
+		y: -rect.top*0.8,
+		duration: 0.6,
+		ease:"power2.out",
+		scrub:true,
 		});
 	}
+
 	});
+	
+
+	const tl1 = gsap.timeline()
+	ScrollTrigger.matchMedia({
+
+	// Desktop
+	"(min-width: 1024px)": () => {
+		tl1.to("header",
+		{
+		opacity:1,
+		xPercent: -40,
+		yPercent: -40,
+		scale: 0.3,
+		duration:1,
+		ease: "power2.out",
+		scrollTrigger: {
+				trigger: hero,
+				start: 'top top',
+				end: '+=300',
+				scrub: true,
+			}
+		})
+
+		ScrollTrigger.create({
+		trigger: hero,
+		start: "middle top",
+		onLeaveBack: () => {
+			gsap.to("header", {
+			scale: scale,
+			y: -rect.top*0.9,
+			duration: 0.1,
+			ease:"power2.out"
+			});
+		}
+		});
+	},
+
+	// Mobile
+	"(max-width: 1023px)": () => {
+		tl1.to("header",
+		{
+		opacity:1,
+		xPercent: -40,
+		yPercent: -40,
+		scale: 0.3,
+		duration:1,
+		ease: "power2.out",
+		scrollTrigger: {
+				trigger: hero,
+				start: 'top top',
+				end: '+=300',
+				scrub: true,
+			}
+		})
+
+		ScrollTrigger.create({
+		trigger: hero,
+		start: "middle top",
+		onLeaveBack: () => {
+			gsap.to("header", {
+			scale: scale,
+			y: -rect.top*0.8,
+			duration: 0.1,
+			ease:"power2.out"
+			});
+		}
+		});
+	}
+
+	});
+	
+	
 	
   })
 </script>
