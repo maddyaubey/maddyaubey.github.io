@@ -108,74 +108,7 @@ import "../styles/index.css";
 		{
 		opacity:1,
 		xPercent: -40,
-		yPercent: -40,
-		scale: 0.3,
-		duration:0.5,
-		ease: "power2.out",
-		scrollTrigger: {
-				trigger: hero,
-				start: 'top top',
-				end: '+=300',
-				scrub: true,
-			}
-		})
-
-		ScrollTrigger.create({
-		trigger: hero,
-		start: "middle top",
-		onLeaveBack: () => {
-			gsap.to("header", {
-			scale: scale,
-			y: -rect.top*0.8,
-			duration: 0.1,
-			ease:"power2.out"
-			});
-		}
-		});
-	}
-
-	});
-
-	const tl2 = gsap.timeline()
-	ScrollTrigger.matchMedia({
-	// Desktop
-	"(min-width: 1024px)": () => {
-		tl2.set("header",
-		{
-		opacity:1,
-		xPercent: -40,
-		yPercent: -40,
-		scale: 0.3,
-		duration:0.5,
-		ease: "power2.out",
-		scrollTrigger: {
-				trigger: hero,
-				start: 'top top',
-				end: '+=300',
-				scrub: true,
-			}
-		})
-
-		ScrollTrigger.create({
-		trigger: hero,
-		start: "middle top",
-		onLeaveBack: () => {
-			gsap.to("header", {
-			scale: scale,
-			y: -rect.top*0.9,
-			duration: 0.1,
-			ease:"power2.out"
-			});
-		}
-		});
-	},
-	// Mobile
-	"(max-width: 1023px)": () => {
-		tl1.set("header",
-		{
-		opacity:1,
-		xPercent: -40,
-		yPercent: -40,
+		yPercent: -65,
 		scale: 0.3,
 		duration:0.5,
 		ease: "power2.out",
@@ -215,7 +148,7 @@ import "../styles/index.css";
 			{
 				opacity:1,
 				xPercent: -40,
-				yPercent: -40,
+				yPercent: -65,
 				scale: 0.3,
 				duration:0.1,
 				ease:"power2.out"
