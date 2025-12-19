@@ -80,17 +80,18 @@ import About from '@/sections/About.astro'
   ease:'power2.out'
 	});
 
-  document.getElementById("scrollIcon").addEventListener("click", () => {
-  gsap.to(window, {
-    duration: 0.6,
-    scrollTo: {
-      y: ".hero-email",
-      offsetY: 150,
-    },
-    ease: "power2.out"
-    });
-  });  
-
+  DOMLoaded(() => {
+  const scrollIcon = document.getElementById("scrollIcon")!
+  scrollIcon.addEventListener("click", () => {
+	gsap.to(window, {
+		duration: 0.6,
+		scrollTo: {
+		y: "#about-section",
+		},
+		ease: "power2.out"
+		});
+	});  
+  });
 </script>
 
 
